@@ -1,3 +1,4 @@
+import 'package:alarm_app/pages/add_alarm_page.dart';
 import 'package:alarm_app/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class AlarmApp extends StatelessWidget {
       title: 'Material App',
       initialRoute: '/',
       routes: {
-        // '/add-alarm': (context) => HomePage(),
+        '/add-alarm': (context) => AddAlarmPage(),
       },
       theme: ThemeData(
         primaryColor: Color(0xff1b2c57),
