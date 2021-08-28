@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:alarm_app/widgets/alarm_item.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:vector_math/vector_math_64.dart' as Vector;
@@ -83,12 +84,12 @@ class _HomePageState extends State<HomePage>
                   ),
                 ),
                 Container(
-                  child: Column(
+                  child: ListView(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8),
-                        child: Text('asdas'),
-                      )
+                      AlarmItem(hour: _timeString, enabled: true),
+                      AlarmItem(hour: _timeString, enabled: true),
+                      AlarmItem(hour: _timeString, enabled: true),
+                      AlarmItem(hour: _timeString, enabled: true),
                     ],
                   ),
                 ),
@@ -115,7 +116,20 @@ class _HomePageState extends State<HomePage>
               ],
             ),
           ),
+          floatingActionButton: _bottomButtons(),
+          floatingActionButtonLocation:
+              FloatingActionButtonLocation.centerFloat,
         ));
+  }
+
+  Widget? _bottomButtons() {
+    return _tabController.index == 1
+        ? FloatingActionButton(
+            onPressed: () => Navigator.pushNamed(context, '/add-alarm'),
+            backgroundColor: Color(0xff65d1ba),
+            child: Icon(Icons.add),
+          )
+        : null;
   }
 }
 
